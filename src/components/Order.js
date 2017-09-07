@@ -13,7 +13,6 @@ class Order extends Component {
             tipRatesInput: '',
             tipRates: [],
             selectedTipRate: 0,
-            tip: 0,
             subtotal: '',
             total: 0
         };
@@ -22,7 +21,6 @@ class Order extends Component {
         this._handleTipInputSubmit = this._handleTipInputSubmit.bind(this);
         this._handleSubTotalInputChange = this._handleSubTotalInputChange.bind(this);
         this._handleTipButtonClick = this._handleTipButtonClick.bind(this);
-        this._handleOrderButtonClick = this._handleOrderButtonClick.bind(this);
     }
 
     _handleTipInputChange(e) {
@@ -33,10 +31,12 @@ class Order extends Component {
     _handleTipInputSubmit() {
         const arr =  this.state.tipRatesInput.split(',');
         const typeCoerced = [];
+
         arr.forEach( item => {
             let num = ( false === isNaN(parseInt(item, 10)) ) ? parseInt(item, 10) : 0;
             typeCoerced.push(num)
         } );
+
         this.setState({
             tipRates: typeCoerced,
             tipRatesInput: ''
@@ -51,18 +51,16 @@ class Order extends Component {
 
     _handleTipButtonClick(e) {
         const val = e.target.value;
-        this.setState({selectedTipRate: parseFloat(val) / 100});
-    }
-
-    _handleOrderButtonClick() {
+        const tipRate = parseFloat(val) / 100;
         const subtotal = this.state.subtotal;
-        const tip = subtotal * this.state.selectedTipRate;
-       const total = subtotal + tip;
-       this.setState({
-           subtotal: subtotal,
-           tip: tip,
-           total: total
-       })
+        const tip = subtotal * tipRate;
+        const total = subtotal + tip;
+
+        this.setState({
+            subtotal: subtotal,
+            tip: tip,
+            total: total
+        })
     }
 
 
@@ -74,13 +72,13 @@ class Order extends Component {
                     <Tip
                         tipRatesInput={this.state.tipRatesInput}
                         tipRates={this.state.tipRates}
-                        clickHandler={this._handleTipButtonClick}
                         changeHandler={this._handleTipInputChange}
                         submitHandler={this._handleTipInputSubmit}
                         />
                     <Total
                         changeHandler={this._handleSubTotalInputChange}
-                        clickHandler={this._handleOrderButtonClick}
+                        clickHandler={this._handleTipButtonClick}
+                        tipRates={this.state.tipRates}
                         tip={this.state.tip}
                         subtotal={this.state.subtotal}
                         total={this.state.total}

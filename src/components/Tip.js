@@ -5,12 +5,7 @@ class Tip extends Component {
     constructor(props) {
         super(props);
         this._handleChange = this._handleChange.bind(this);
-        this._handleClick = this._handleClick.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
-    }
-
-    _handleClick(e) {
-        this.props.clickHandler(e)
     }
 
     _handleChange(e) {
@@ -30,13 +25,6 @@ class Tip extends Component {
                     <div>
                         <input type="text" className="form-control form-control-sm" value={this.props.tipRatesInput}  onChange={this._handleChange} />
                         <button className="btn btn-secondary" onClick={this._handleSubmit}>Submit Tip Amounts</button>
-                    </div>
-                    <div className="btn-group">
-                        { this.props.tipRates.filter( amount  =>
-                            amount > 0
-                        ).map( (amount, index) =>
-                        <button key={index} value={amount} className="btn btn-secondary" onClick={this._handleClick}>{amount}%</button>
-                        )}
                     </div>
                 </div>
             </div>
