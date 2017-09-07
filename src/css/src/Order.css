@@ -1,0 +1,31 @@
+body {
+    font-family: "Open Sans", arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-weight: bold;
+}
+
+ul .total {
+    float: right;
+}
+
+button, .itemized-total {
+    margin-top: 20px;
+}
+
+.logo {
+    background: url('http://www.menusifu.com/wp-content/uploads/2017/05/250_60.png') 0 0 no-repeat;
+    width: 250px;
+    height: 60px;
+}
+
+.brand-color {
+    height: 50px;
+    background: #ffcd50;
+    margin-bottom: 30px;
+}
+
+
