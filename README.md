@@ -1,15 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 ## Project Requirements:
 
 ### Input 1 and Button 1
 
 Set up tip rates based on user input. For example, if user enters "5,10,15,20" in input 1 and clicks Button 1, 4 buttons will be generated showing up 5%, 10%, 15%, 20% as the available tip rates for the next step.
 
-###Input 2
+### Input 2
 
 When user enters order subtotal in input 2(e.g. 19.99), and clicks one of the tip rate buttons, order subtotal, tips and order final amount shall be displayed based on selected tip rate.
 
+### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
