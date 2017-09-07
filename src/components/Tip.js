@@ -24,7 +24,7 @@ class Tip extends Component {
                     <label>Enter Tip Amounts</label>
                     <div>
                         <input type="text" className="form-control form-control-sm" value={this.props.tipRatesInput}  onChange={this._handleChange} />
-                        <button className="btn btn-secondary" onClick={this._handleSubmit}>Submit Tip Amounts</button>
+                        <button className="btn btn-secondary" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
